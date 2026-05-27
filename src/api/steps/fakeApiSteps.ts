@@ -29,6 +29,7 @@ Given("client creates a new product", async function (this: PlaywrightWorld) {
     const productList = await response.json();
     console.log("List of products before creating a new product: ", productList);
     console.log("Executed step: client creates a new product");
+    expect(response.status()).toBe(200);
 });
 
 Given("product is successfully added", async function (this: PlaywrightWorld) {
