@@ -5,6 +5,9 @@
         ],
         "require": [
             "src/web/steps/*.ts",
+            "src/web/steps/**/*.ts",
+            "src/api/steps/*.ts",
+            "src/api/steps/**/*.ts",
             "src/utils/**/*.ts"
         ],
         "paths": [

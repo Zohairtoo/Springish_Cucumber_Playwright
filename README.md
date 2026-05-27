@@ -8,4 +8,6 @@ Idea is that this sample framework will leverage some of the most powerful conce
 - In actual test we will use baseTest class and directly use initited pageObjects, to give a @Autowired effect
 - playwright.config.ts will be use instead of application.yml
 - We have to use Active profiles we will use multiple .env files
-- 
+
+
+command to run the framework is:  npx cucumber-js --config cucumber.json
