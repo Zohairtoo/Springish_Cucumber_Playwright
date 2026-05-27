@@ -24,7 +24,9 @@ Then("client logs in with user_pass", async function (this: PlaywrightWorld) {
 });
 
 Given("client creates a new product", async function (this: PlaywrightWorld) {
+    // need to shift this to a before hook and set the api context there, then we can use it in all the steps
     if (!this.api) throw new Error("API context is not initialized.");
+    // need to get this logic into REST onject and then call the method here, also need to add the payload for creating a new product
     const response: APIResponse = await this.api.get("/products");
     const productList = await response.json();
     console.log("List of products before creating a new product: ", productList);
