@@ -14,6 +14,8 @@ export class ApiHook extends AbstractHook {
                 'Content-Type': 'application/json'
             }
         });
+        // need to shift this to a before hook and set the api context there, then we can use it in all the steps
+        if (!world.api) throw new Error("API context is not initialized.");
     }
 
     public async afterScenario(world: PlaywrightWorld): Promise<void> {
