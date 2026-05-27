@@ -1,8 +1,6 @@
 import { Given, Then, When, setDefaultTimeout, DataTable } from "@cucumber/cucumber";
-// import Assert from "../../support/playwright/asserts/Assert";
-// import StringUtil from "../../support/utils/StringUtil";
-// import Constants from "../constants/Constants";
 import { PlaywrightWorld } from "../../utils/playwright-world";
+import { expect, APIResponse } from '@playwright/test';
 
 setDefaultTimeout(5000);
 
@@ -26,6 +24,10 @@ Then("client logs in with user_pass", async function (this: PlaywrightWorld) {
 });
 
 Given("client creates a new product", async function (this: PlaywrightWorld) {
+    if (!this.api) throw new Error("API context is not initialized.");
+    const response: APIResponse = await this.api.get("/products");
+    const productList = await response.json();
+    console.log("List of products before creating a new product: ", productList);
     console.log("Executed step: client creates a new product");
 });
 
